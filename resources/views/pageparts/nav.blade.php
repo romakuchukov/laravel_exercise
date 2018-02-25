@@ -7,10 +7,10 @@
         <div class="top-left-part">
             <a class="logo" href="index.html">
                 <b>
-                    <img src="imgs/pixeladmin-logo.png" alt="home">
+                    <img src="{{ asset('imgs/pixeladmin-logo.png') }}" alt="home">
                 </b>
                 <span class="hidden-xs">
-                    <img src="imgs/pixeladmin-text.png" alt="home">
+                    <img src="{{ asset('imgs/pixeladmin-text.png') }}" alt="home">
                 </span>
             </a>
         </div>
@@ -24,31 +24,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
-
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                                Logout
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 {{ csrf_field() }}
+                                <input type="submit" value="Logout">
                             </form>
                         </li>
                     </ul>
                 </li>
             @endguest
         </ul>
-        <!-- <ul class="nav navbar-top-links navbar-right pull-right">
-            <li>
-                <a class="profile-pic" href="#">
-                    <img src="imgs/varun.jpg" alt="user-img" width="36" class="img-circle">
-                    <b class="hidden-xs">Steave</b>
-                </a>
-            </li>
-        </ul> -->
     </div>
     <!-- /.navbar-header -->
     <!-- /.navbar-top-links -->

@@ -9,8 +9,5 @@
                 </a>
             </li>
         </ul>
-        <div class="center p-20">
-            <span class="hide-menu"><a href="http://wrappixel.com/templates/pixeladmin/" target="_blank" class="btn btn-danger btn-block btn-rounded waves-effect waves-light">Upgrade to Pro</a></span>
-        </div>
     </div>
 </div>
