@@ -46,16 +46,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $bitcoin = $this->get_merged_currencies(['EUR', 'AUD']);
 
-        $data = [
-            'price_usd' => $bitcoin['price_usd'],
-            'price_eur' => $bitcoin['price_eur'],
-            'price_aud' => $bitcoin['price_aud'],
+        $nan_message = 'NaN';
 
-            'hour' => $bitcoin['percent_change_1h'],
-            'day'  => $bitcoin['percent_change_24h'],
-            'week' => $bitcoin['percent_change_7d'],
+        $data = [
+            'price_usd' => isset($bitcoin['price_usd']) ? round($bitcoin['price_usd'], 2) : $nan_message,
+            'price_eur' => isset($bitcoin['price_eur']) ? round($bitcoin['price_eur'], 2) : $nan_message,
+            'price_aud' => isset($bitcoin['price_aud']) ? round($bitcoin['price_aud'], 2) : $nan_message,
+
+            'hour' => isset($bitcoin['percent_change_1h']) ? round($bitcoin['percent_change_1h'], 2) : $nan_message,
+            'day'  => isset($bitcoin['percent_change_24h']) ? round($bitcoin['percent_change_24h'], 2) : $nan_message,
+            'week' => isset($bitcoin['percent_change_7d']) ? round($bitcoin['percent_change_7d'], 2) : $nan_message
         ];
 
         return view('home')->with($data);
