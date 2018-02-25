@@ -35,7 +35,6 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         var price_usd = {{$price_usd}};
         var price_eur = {{$price_eur}};
@@ -44,7 +43,7 @@
         var hour = {{$hour}};
         var day  = {{$day}};
         var week = {{$week}};
-
     </script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -4,10 +4,10 @@
         <div class="white-box">
             <div class="box-title">Select Currency Type
                 <div class="col-md-2 col-sm-4 col-xs-12 pull-right">
-                    <select class="form-control pull-right row b-none">
-                        <option vlaue="usd">USD</option>
-                        <option vlaue="eur">EUR</option>
-                        <option vlaue="aud">AUD</option>
+                    <select id="currency-select" class="form-control pull-right row b-none currency-selector">
+                        <option value="{{$price_usd}}">USD</option>
+                        <option value="{{$price_eur}}">EUR</option>
+                        <option value="{{$price_aud}}">AUD</option>
                     </select>
                 </div>
             </div>

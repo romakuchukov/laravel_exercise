@@ -5,10 +5,8 @@
             <i class="fa fa-bars"></i>
         </a>
         <div class="top-left-part">
-            <a class="logo" href="index.html">
-                <b>
-                    <img src="{{ asset('imgs/pixeladmin-logo.png') }}" alt="home">
-                </b>
+            <a class="logo" href="/">
+                <img src="{{ asset('imgs/pixeladmin-logo.png') }}" alt="home">
                 <span class="hidden-xs">
                     <img src="{{ asset('imgs/pixeladmin-text.png') }}" alt="home">
                 </span>

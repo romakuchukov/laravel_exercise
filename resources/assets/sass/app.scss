@@ -27,3 +27,12 @@ html { background: #516673; }
         background-color: #f5f5f5;
     }
 }
+
+.currency-selector {
+    font-size: 30px;
+    font-weight: 300;
+}
+
+i.fa.negative:before {
+    content: "\f175";
+}

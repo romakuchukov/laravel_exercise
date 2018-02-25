@@ -10,6 +10,7 @@
             <!-- /.col-lg-12 -->
         </div>
         @include('pageparts.currency-select')
+        @include('pageparts.currency-current')
         @include('pageparts.percent-change')
     </div>
     <!-- /.container-fluid -->
