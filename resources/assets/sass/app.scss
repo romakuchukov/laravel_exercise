@@ -7,10 +7,10 @@
 
 // // // Bootstrap
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+html { background: #516673; }
 
-.dropdown-menu {
-    padding-bottom: 5px;
-}
+.dropdown-menu { padding-bottom: 5px; }
+
 #logout-form input{
     display: block;
     clear: both;
