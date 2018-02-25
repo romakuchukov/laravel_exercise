@@ -1,0 +1,5 @@
+- Create model for bitcoin price and timestamp
+- Create bitcoin API service poll to populate model
+- Create templates for the admin
+- Create local storage for last login price
+-
