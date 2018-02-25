@@ -16,17 +16,7 @@
 // [percent_change_7d] => -12.36
 
 
-Route::get('/', function () {
-    $bitcoin = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/bitcoin'), true)[0];
-
-    $data = [
-        'hour' => $bitcoin['percent_change_1h'],
-        'day'  => $bitcoin['percent_change_24h'],
-        'week' => $bitcoin['percent_change_7d'],
-    ];
-
-    return view('welcome')->with($data);
-});
+Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 
