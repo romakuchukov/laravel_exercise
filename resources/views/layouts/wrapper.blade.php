@@ -23,7 +23,9 @@
 <body>
     <div id="wrapper">
         @include('pageparts.nav')
-        @include('pageparts.sidebar')
+        @auth
+            @include('pageparts.sidebar')
+        @endauth
         @yield('content')
         <!-- /#page-wrapper -->
     </div>
