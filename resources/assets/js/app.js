@@ -20,8 +20,15 @@
 // const app = new Vue({
 //     el: '#app'
 // });
+function precisionRound(number, precision) {
+  var factor = Math.pow(10, precision);
+  return Math.round(number * factor) / factor;
+}
 
 jQuery(function($) {
+    if (localStorage.getItem('previousPriceCurr') === null) {
+        localStorage.setItem('previousPriceCurr', JSON.stringify(['usd', Infinity]))
+    }
 
     var $hour_icon = $('#hour');
     var $day_icon  = $('#day');
@@ -31,15 +38,17 @@ jQuery(function($) {
     (day < 0) ? $hour_icon.addClass('negative') : $.noop();
     (week < 0) ? $week_icon.addClass('negative'): $.noop();
 
+    var $currencySelect = $('#currency-select');
 
-    $('#currency-select').change(function() {
+    $currencySelect.change(function() {
 
         var currency = $(this).val().split('|')[0];
         var price = $(this).val().split('|')[1];
         var selectedCurrency = $(this).children('option').filter(':selected').text();
 
         $('#current-currency').text(selectedCurrency);
-        $('#current-price').text(price);
+        $('#current-price').html('')
+        $('#current-price').html('<i class="fa fa-money" id="money-icon" aria-hidden="true"></i>' + price);
 
         localStorage.setItem('previousPriceCurr', JSON.stringify([currency, price]));
 
@@ -47,7 +56,32 @@ jQuery(function($) {
 
     var storedData = JSON.parse(localStorage.getItem('previousPriceCurr'));
 
-    $('#currency-select').find('option').filter(function() {
-            return (storedData[0] === $(this).val().slice(0, 3));
-        }).prop('selected', true).trigger('change');
+
+    $currencySelect.find('option').filter(function() {
+
+        var newVal = $(this).val().slice(4);
+        var oldVal = storedData[1];
+        var percentChange = (newVal-oldVal)/oldVal;
+
+        if (percentChange === Infinity) { percentChange = 0; }
+
+        $(this).data('percent-change', precisionRound(percentChange, 2));
+
+        console.log(oldVal, newVal);
+        console.log(percentChange);
+
+        return (storedData[0] === $(this).val().slice(0, 3));
+
+    }).filter(function() {
+
+        var $percentChange = $('#percent-change');
+        $percentChange.html($percentChange.html() + $(this).data('percent-change') + '%');
+
+        ($(this).data('percent-change') < 0) ? $percentChange.find('i').addClass('negative') : $.noop();
+
+    }).prop('selected', true).trigger('change');
+
+    $('#logout-form').find('input').click(function() {
+        $currencySelect.trigger('change');
+    });
 });

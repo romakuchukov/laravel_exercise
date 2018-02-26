@@ -2,11 +2,6 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
-// @import "variables";
-
-// // // Bootstrap
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 html { background: #516673; }
 
 .dropdown-menu { padding-bottom: 5px; }
@@ -42,3 +37,4 @@ a.logo i.fa-bitcoin:before {
     display: block;
     font-size: 40px;
 }
+#money-icon { color: #fff; }
