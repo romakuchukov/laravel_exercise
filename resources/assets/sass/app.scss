@@ -29,9 +29,8 @@ html { background: #516673; }
     height: auto;
 }
 
-i.fa.negative:before {
-    content: "\f103";
-}
+i.fa.negative:before { content: "\f103"; }
+i.fa.no-change:before{ content: "\f141"; }
 
 a.logo i.fa-bitcoin:before {
     padding: 10px 16px 10px 16px;

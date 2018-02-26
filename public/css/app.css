@@ -34,6 +34,10 @@ i.fa.negative:before {
   content: "\F103";
 }
 
+i.fa.no-change:before {
+  content: "\F141";
+}
+
 a.logo i.fa-bitcoin:before {
   padding: 10px 16px 10px 16px;
   display: block;

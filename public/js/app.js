@@ -90,7 +90,7 @@
 // const app = new Vue({
 //     el: '#app'
 // });
-
+//    content: "\f068";
 function precisionRound(number, precision) {
     var factor = Math.pow(10, precision);
     return Math.round(number * factor) / factor;
@@ -106,10 +106,17 @@ jQuery(function ($) {
 
     $percentChange.html($percentChange.html() + percentChangeNum + '%');
 
-    percentChangeNum < 0 ? $percentChange.find('i').addClass('negative') : $.noop();
+    // negative
     hour < 0 ? $('#hour').addClass('negative') : $.noop();
     day < 0 ? $('#day').addClass('negative') : $.noop();
     week < 0 ? $('#week').addClass('negative') : $.noop();
+    percentChangeNum < 0 ? $percentChange.find('i').addClass('negative') : $.noop();
+
+    // no change
+    hour === 0 ? $('#hour').addClass('no-change') : $.noop();
+    day === 0 ? $('#day').addClass('no-change') : $.noop();
+    week === 0 ? $('#week').addClass('no-change') : $.noop();
+    percentChangeNum === 0 ? $percentChange.find('i').addClass('no-change') : $.noop();
 
     if (localStorage.getItem('previousPriceCurr') === null) {
         localStorage.setItem('previousPriceCurr', JSON.stringify(['usd', price_usd]));
