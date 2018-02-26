@@ -102,9 +102,20 @@ jQuery(function ($) {
     week < 0 ? $week_icon.addClass('negative') : $.noop();
 
     $('#currency-select').change(function () {
-        $('#current-currency').text($(this).children('option').filter(":selected").text());
-        $('#current-price').text($(this).val());
+
+        var price = $(this).val().split('|')[0];
+        var currency = $(this).val().split('|')[1];
+        var selectedCurrency = $(this).children('option').filter(':selected').text();
+
+        $('#current-currency').text(selectedCurrency);
+        $('#current-price').text(price);
+
+        localStorage.setItem('previousPriceCurr', JSON.stringify([currency, price]));
     });
+
+    var storedData = JSON.parse(localStorage.getItem('previousPriceCurr'));
+
+    console.log(storedData);
 });
 
 /***/ }),
