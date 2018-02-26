@@ -103,8 +103,8 @@ jQuery(function ($) {
 
     $('#currency-select').change(function () {
 
-        var price = $(this).val().split('|')[0];
-        var currency = $(this).val().split('|')[1];
+        var currency = $(this).val().split('|')[0];
+        var price = $(this).val().split('|')[1];
         var selectedCurrency = $(this).children('option').filter(':selected').text();
 
         $('#current-currency').text(selectedCurrency);
@@ -115,7 +115,9 @@ jQuery(function ($) {
 
     var storedData = JSON.parse(localStorage.getItem('previousPriceCurr'));
 
-    console.log(storedData);
+    $('#currency-select').find('option').filter(function () {
+        return storedData[0] === $(this).val().slice(0, 3);
+    }).prop('selected', true).trigger('change');
 });
 
 /***/ }),
