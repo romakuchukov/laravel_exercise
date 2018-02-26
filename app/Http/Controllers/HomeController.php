@@ -15,24 +15,26 @@ class HomeController extends Controller
     }
 
     /**
-     * Gets bit coin in US and other currencies
+     * Gets bit coin in US and other currencies.
      *
      * @return specific currency bitcoin array
      */
-    private function get_currency_json ($currency) {
+    private function get_currency_json ($currency)
+    {
         return json_decode(file_get_contents("https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=$currency"), true);
     }
 
     /**
-     * merges several currency arrays into one
+     * Merges several currency arrays into one.
      *
      * @return one currency array
      */
 
-    private function get_merged_currencies($currency_types) {
+    private function get_merged_currencies ($currency_types)
+    {
         $currency_stack = [];
 
-        foreach($currency_types as $type):
+        foreach ($currency_types as $type):
             $currency_stack = array_unique(array_merge($currency_stack, $this->get_currency_json($type)[0]), SORT_REGULAR);
         endforeach;
 
@@ -58,7 +60,7 @@ class HomeController extends Controller
 
             'hour' => isset($bitcoin['percent_change_1h']) ? round($bitcoin['percent_change_1h'], 2) : $nan_message,
             'day'  => isset($bitcoin['percent_change_24h']) ? round($bitcoin['percent_change_24h'], 2) : $nan_message,
-            'week' => isset($bitcoin['percent_change_7d']) ? round($bitcoin['percent_change_7d'], 2) : $nan_message
+            'week' => isset($bitcoin['percent_change_7d']) ? round($bitcoin['percent_change_7d'], 2) : $nan_message,
         ];
 
         return view('home')->with($data);
