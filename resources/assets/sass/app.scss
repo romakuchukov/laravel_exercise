@@ -34,5 +34,11 @@ html { background: #516673; }
 }
 
 i.fa.negative:before {
-    content: "\f175";
+    content: "\f103";
+}
+
+a.logo i.fa-bitcoin:before {
+    padding: 10px 16px 10px 16px;
+    display: block;
+    font-size: 40px;
 }

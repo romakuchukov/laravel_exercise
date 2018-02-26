@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">
                     <h3 class="counter text-right m-t-15 text-danger">
-                        <i id="hour" class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                        <i id="hour" class="fa fa-angle-double-up" aria-hidden="true"></i>
                         {{$hour}}%
                     </h3>
                 </div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">
                     <h3 class="counter text-right m-t-15 text-megna">
-                        <i id="day" class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                        <i id="day" class="fa fa-angle-double-up" aria-hidden="true"></i>
                         {{$day}}%
                     </h3>
                 </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">
                     <h3 class="counter text-right m-t-15 text-primary">
-                        <i id="week" class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                        <i id="week" class="fa fa-angle-double-up" aria-hidden="true"></i>
                         {{$week}}%
                     </h3>
                 </div>

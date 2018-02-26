@@ -36,10 +36,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script>
-        var price_usd = {{$price_usd}};
-        var price_eur = {{$price_eur}};
-        var price_aud = {{$price_aud}};
-
         var hour = {{$hour}};
         var day  = {{$day}};
         var week = {{$week}};
