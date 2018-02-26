@@ -5,11 +5,10 @@
         <div class="white-box">
             <div class="col-in row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
-                    <i data-icon="E" class="linea-icon linea-basic"></i>
                     <h5 class="text-muted vb">HOURLY<br>CHANGE</h5>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">
-                    <h3 class="counter text-right m-t-15 text-danger">
+                    <h3 class="counter text-right m-t-15 text-megna">
                         <i id="hour" class="fa fa-angle-double-up" aria-hidden="true"></i>
                         {{$hour}}%
                     </h3>
@@ -23,11 +22,10 @@
         <div class="white-box">
             <div class="col-in row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
-                    <i class="linea-icon linea-basic" data-icon="&#xe01b;"></i>
                     <h5 class="text-muted vb">DAILY<br>CHANGE</h5>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">
-                    <h3 class="counter text-right m-t-15 text-megna">
+                    <h3 class="counter text-right m-t-15 text-danger">
                         <i id="day" class="fa fa-angle-double-up" aria-hidden="true"></i>
                         {{$day}}%
                     </h3>
@@ -41,7 +39,6 @@
         <div class="white-box">
             <div class="col-in row">
                 <div class="col-md-3 col-sm-3 col-xs-3">
-                    <i class="linea-icon linea-basic" data-icon="&#xe00b;"></i>
                     <h5 class="text-muted vb">WEEKLY<br>CHANGE</h5>
                 </div>
                 <div class="col-md-9 col-sm-9 col-xs-9">

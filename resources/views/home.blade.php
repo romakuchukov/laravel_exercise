@@ -14,6 +14,6 @@
         @include('pageparts.percent-change')
     </div>
     <!-- /.container-fluid -->
-    <footer class="footer text-center"> 2017 &copy; Pixel Admin brought to you by wrappixel.com </footer>
+    <footer class="footer text-center"> Bitcoin - 2018 &copy; </footer>
 </div>
 @endsection

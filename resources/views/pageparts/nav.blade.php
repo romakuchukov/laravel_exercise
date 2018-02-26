@@ -7,9 +7,11 @@
         <div class="top-left-part">
             <a class="logo" href="/">
                 <i class="fa fa-bitcoin"></i>
-                <span class="hidden-xs">
-                    <img src="{{ asset('imgs/pixeladmin-text.png') }}" alt="home">
-                </span>
+                @auth
+                    <span class="hidden-xs">
+                        <img src="{{ asset('imgs/pixeladmin-text.png') }}" alt="home">
+                    </span>
+                @endauth
             </a>
         </div>
         <ul class="nav navbar-top-links navbar-right pull-right">

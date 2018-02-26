@@ -35,11 +35,13 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script>
-        var hour = {{$hour}};
-        var day  = {{$day}};
-        var week = {{$week}};
-    </script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    @auth
+        <script>
+            var hour = {{$hour}};
+            var day  = {{$day}};
+            var week = {{$week}};
+        </script>
+        <script src="{{ asset('js/app.js') }}"></script>
+    @endauth
 </body>
 </html>
