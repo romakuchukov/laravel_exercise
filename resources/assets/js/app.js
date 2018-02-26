@@ -32,7 +32,7 @@ jQuery(function($) {
     var $percentChange = $('#percent-change');
     var oldPrice = localStorage.getItem('logoutPercent') || price_usd;
     var newPrice = price_usd;
-    var percentChangeNum = precisionRound((newPrice-oldPrice)/oldPrice, 2);
+    var percentChangeNum = precisionRound(((newPrice-oldPrice)/oldPrice)*100, 2);
 
     $percentChange.html($percentChange.html() + (percentChangeNum) + '%');
 
