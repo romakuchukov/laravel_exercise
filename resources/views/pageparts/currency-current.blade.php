@@ -1,6 +1,6 @@
 <!-- row -->
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-md-6 col-sm-12">
         <div class="white-box">
             <div class="box-title">
                 <h5 class="text-muted vb">Percentage change since last login</h5>
@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-md-6 col-sm-12">
         <div class="white-box">
             <div class="box-title">
                 <h5 class="text-muted vb">Bitcoin now</h5>
