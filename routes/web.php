@@ -13,11 +13,11 @@
 
 Auth::routes();
 
-Route::get('/', function() {
+Route::get('/', function () {
     return redirect('home');
 });
 
-Route::get('/logout', function() {
+Route::get('/logout', function () {
     return redirect('login');
 });
 

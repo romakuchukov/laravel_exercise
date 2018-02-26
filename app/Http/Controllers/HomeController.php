@@ -19,7 +19,7 @@ class HomeController extends Controller
      *
      * @return specific currency bitcoin array
      */
-    private function get_currency_json ($currency)
+    private function get_currency_json($currency)
     {
         return json_decode(file_get_contents("https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=$currency"), true);
     }
@@ -30,7 +30,7 @@ class HomeController extends Controller
      * @return one currency array
      */
 
-    private function get_merged_currencies ($currency_types)
+    private function get_merged_currencies($currency_types)
     {
         $currency_stack = [];
 
@@ -59,7 +59,7 @@ class HomeController extends Controller
             'price_aud' => isset($bitcoin['price_aud']) ? round($bitcoin['price_aud'], 2) : $nan_message,
 
             'hour' => isset($bitcoin['percent_change_1h']) ? round($bitcoin['percent_change_1h'], 2) : $nan_message,
-            'day'  => isset($bitcoin['percent_change_24h']) ? round($bitcoin['percent_change_24h'], 2) : $nan_message,
+            'day' => isset($bitcoin['percent_change_24h']) ? round($bitcoin['percent_change_24h'], 2) : $nan_message,
             'week' => isset($bitcoin['percent_change_7d']) ? round($bitcoin['percent_change_7d'], 2) : $nan_message,
         ];
 
