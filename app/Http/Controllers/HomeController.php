@@ -9,7 +9,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,7 +19,6 @@ class HomeController extends Controller
      *
      * @return specific currency bitcoin array
      */
-
     private function get_currency_json($currency)
     {
         return json_decode(file_get_contents("https://api.coinmarketcap.com/v1/ticker/bitcoin/?convert=$currency"), true);
@@ -31,7 +29,6 @@ class HomeController extends Controller
      *
      * @return one currency array
      */
-
     private function get_merged_currencies($currency_types)
     {
         $currency_stack = [];
@@ -50,7 +47,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $bitcoin = $this->get_merged_currencies(['EUR', 'AUD']);
 
         $nan_message = 'NaN';
