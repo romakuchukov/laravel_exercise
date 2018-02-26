@@ -26,8 +26,8 @@ function precisionRound(number, precision) {
 }
 
 jQuery(function($) {
-    if (localStorage.getItem('previousPriceCurr') === null) {
-        localStorage.setItem('previousPriceCurr', JSON.stringify(['usd', Infinity]))
+    if (localStorage.getItem('logoutPercent') === null) {
+        localStorage.setItem('logoutPercent', JSON.stringify(0));
     }
 
     var $hour_icon = $('#hour');
@@ -38,11 +38,11 @@ jQuery(function($) {
     (day < 0) ? $hour_icon.addClass('negative') : $.noop();
     (week < 0) ? $week_icon.addClass('negative'): $.noop();
 
-    var $currencySelect = $('#currency-select');
+    //var $currencySelect = $('#currency-select');
 
-    $currencySelect.change(function() {
+    $('#currency-select').change(function() {
 
-        var currency = $(this).val().split('|')[0];
+        // var currency = $(this).val().split('|')[0];
         var price = $(this).val().split('|')[1];
         var selectedCurrency = $(this).children('option').filter(':selected').text();
 
@@ -50,38 +50,44 @@ jQuery(function($) {
         $('#current-price').html('')
         $('#current-price').html('<i class="fa fa-money" id="money-icon" aria-hidden="true"></i>' + price);
 
-        localStorage.setItem('previousPriceCurr', JSON.stringify([currency, price]));
+        //localStorage.setItem('previousPriceCurr', JSON.stringify([currency, price]));
 
     });
 
-    var storedData = JSON.parse(localStorage.getItem('previousPriceCurr'));
+    //var storedData = JSON.parse(localStorage.getItem('previousPriceCurr'));
 
 
-    $currencySelect.find('option').filter(function() {
+    // $currencySelect.find('option').filter(function() {
 
-        var newVal = $(this).val().slice(4);
-        var oldVal = storedData[1];
-        var percentChange = (newVal-oldVal)/oldVal;
+    //     // var newVal = $(this).val().slice(4);
+    //     // var oldVal = storedData[1];
+    //     // var percentChange = (newVal-oldVal)/oldVal;
 
-        if (percentChange === Infinity) { percentChange = 0; }
+    //     // //if (percentChange === Infinity) { percentChange = 0; }
 
-        $(this).data('percent-change', precisionRound(percentChange, 2));
+    //     // $(this).data('percent-change', precisionRound(percentChange, 2));
 
-        console.log(oldVal, newVal);
-        console.log(percentChange);
+    //     //return (storedData[0] === $(this).val().slice(0, 3));
 
-        return (storedData[0] === $(this).val().slice(0, 3));
+    // }).filter(function() {
 
-    }).filter(function() {
 
-        var $percentChange = $('#percent-change');
-        $percentChange.html($percentChange.html() + $(this).data('percent-change') + '%');
 
-        ($(this).data('percent-change') < 0) ? $percentChange.find('i').addClass('negative') : $.noop();
+    // }).prop('selected', true).trigger('change');
 
-    }).prop('selected', true).trigger('change');
+    //$currencySelect = $('#currency-select');
+    var oldPrice = localStorage.getItem('logoutPercent');
+    var newPrice = price_usd;
+    var percentChangeNum = precisionRound((newPrice-oldPrice)/oldPrice, 2);
 
-    $('#logout-form').find('input').click(function() {
-        $currencySelect.trigger('change');
+    console.log(localStorage.getItem('logoutPercent'));
+
+    var $percentChange = $('#percent-change');
+    $percentChange.html($percentChange.html() + ((percentChangeNum === Infinity) ? 0 : percentChangeNum) + '%');
+
+    (percentChangeNum < 0) ? $percentChange.find('i').addClass('negative') : $.noop();
+
+    $('#logout-form').find('input').click(function(e) {
+        localStorage.setItem('logoutPercent', JSON.stringify(price_usd));
     });
 });

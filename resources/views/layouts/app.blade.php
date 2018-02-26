@@ -37,6 +37,7 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     @auth
         <script>
+            var price_usd = {{$price_usd}};
             var hour = {{$hour}};
             var day  = {{$day}};
             var week = {{$week}};

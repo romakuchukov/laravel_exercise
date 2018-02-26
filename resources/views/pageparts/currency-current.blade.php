@@ -20,6 +20,7 @@
                 <div class="col-in row">
                     <h2 id="current-currency" class="text-muted vb text-right">USD</h2>
                     <h3 id="current-price" class="counter text-right m-t-15 text-primary">
+                        <i class="fa fa-money" id="money-icon" aria-hidden="true"></i>
                         {{$price_usd}}
                     </h3>
                 </div>
