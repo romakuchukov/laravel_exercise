@@ -90,7 +90,7 @@
 // const app = new Vue({
 //     el: '#app'
 // });
-//    content: "\f068";
+
 function precisionRound(number, precision) {
     var factor = Math.pow(10, precision);
     return Math.round(number * factor) / factor;
